@@ -29,15 +29,15 @@ Q7: Get student names and their course names from students and courses tables.
   ON students.course_id = courses.course_id;
 
 Q 8. Display students from Mumbai
-   SELECT * FROM students
-   WHERE city = 'Mumbai';
+   select * FROM students
+   where city = 'Mumbai';
 
 Q 9 Find students whose name starts with ‘S’
-  SELECT * FROM students
-  WHERE name LIKE 'S%';
+  select * FROM students
+  where  name LIKE 'S%';
 
 Q 10 Show unique cities
-  SELECT DISTINCT city FROM students;
+  select distinct city FROM students;
 
 
 
