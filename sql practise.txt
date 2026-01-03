@@ -1,0 +1,43 @@
+Q 1: Display only name and age from the students table.
+ select name,age
+ from students;
+
+Q 2: Fetch students whose age is greater than 18.
+  select * from students
+  where age > 18;
+
+Q 3: Display all students ordered by age in descending order.
+ select * from students
+ order by age DESC;
+
+Q 4: Fetch students whose age is above 18 and city is 'Pune'.
+  select * from students 
+  where age >18 AND city= 'Pune';
+
+Q 5: Find the total number of students.
+  select count(*) from students;
+
+Q6: Find number of students in each city.
+  select city, count (*)
+  from students
+  group by city:
+
+Q7: Get student names and their course names from students and courses tables.
+  SELECT students.name, courses.course_name
+  from students
+  inner join courses
+  ON students.course_id = courses.course_id;
+
+Q 8. Display students from Mumbai
+   SELECT * FROM students
+   WHERE city = 'Mumbai';
+
+Q 9 Find students whose name starts with ‘S’
+  SELECT * FROM students
+  WHERE name LIKE 'S%';
+
+Q 10 Show unique cities
+  SELECT DISTINCT city FROM students;
+
+
+
