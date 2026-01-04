@@ -39,5 +39,63 @@ Q 9 Find students whose name starts with ‘S’
 Q 10 Show unique cities
   select distinct city FROM students;
 
+Q 11. Find students between age 18 and 21
+   Select * from students
+   where age betweeen 18 AND 21;
+
+Q 12. Count students in each course
+
+   Select course_id, COUNT(*)
+   from students
+   group by course_id;
+
+Q 13 .Show course name with total students
+
+Select c.course_name, COUNT(s.student_id)
+From courses c
+left join students s
+on  c.course_id = s.course_id
+group by  c.course_name;
+
+Q.14 . Find average age of students
+ Select AVG(age) 
+ from students;
+
+Q.15 Find youngest student
+Select * From students
+ORDER BY age ASC
+LIMIT 1;
+
+Q. 16 Students enrolled in 'Data Science'
+SELECT s.name, s.city
+FROM students s
+JOIN courses c
+ON s.course_id = c.course_id
+WHERE c.course_name = 'Data Science';
+
+Q 17 Students whose age is greater than course average age
+SELECT *
+FROM students s
+WHERE age >
+(Select AVG(age)
+ from students
+ where course_id = s.course_id
+);
+
+Q 18 Students not enrolled in any course
+ Select * from students
+ where course_id IS NULL;
+ 
+Q 19 Second oldest student
+SELECT *
+from  students
+order by  age DESC
+limit  1;
+
+Q 20 Update city of a student
+
+update students
+SET city = 'pune'
+where student_id = 3;
 
 
