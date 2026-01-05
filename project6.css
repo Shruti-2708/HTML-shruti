@@ -1,0 +1,45 @@
+* {
+  font-family: Arial;
+}
+
+body {
+  background-color: #f5f7fb;
+  padding: 40px;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.pricing-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background-color: white;
+  width: 260px;
+  padding: 25px;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+.price {
+  font-size: 20px;
+  margin: 15px 0;
+  color: #4a63f5;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  padding: 10px 15px;
+  background-color: #4a63f5;
+  border: none;
+  color: white;
+}
