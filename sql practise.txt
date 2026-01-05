@@ -98,4 +98,62 @@ update students
 SET city = 'pune'
 where student_id = 3;
 
+Q 21 . Delete students below age 18
+
+DELETE FROM students
+WHERE age < 18;
+ 
+Q 22 Find students whose city is Pune or Mumbai
+SELECT * FROM students
+WHERE city IN ('Pune', 'Mumbai');
+ 
+Q 23 Display students along with their course names
+SELECT s.name, s.city, c.course_name
+FROM students s
+JOIN courses c
+ON s.course_id = c.course_id;
+
+Q24 Find total students in each city (only cities with at least 2 students)
+
+SELECT city, COUNT(*)
+FROM students
+GROUP BY city
+HAVING COUNT(*) >= 2;
+
+Q 25 Find maximum age from each city
+SELECT city, MAX(age) 
+FROM students
+GROUP BY city;
+
+Q 26 Find students whose course is Computer Science
+SELECT s.name, s.age
+FROM students s
+JOIN courses c
+ON s.course_id = c.course_id
+WHERE c.course_name = 'Computer Science';
+
+Q 27 Find total number of students per course (course name wise)
+SELECT c.course_name, COUNT(s.student_id)
+FROM courses c
+LEFT JOIN students s
+ON c.course_id = s.course_id
+GROUP BY c.course_name;
+
+Q 28 Find cities where average student age is above 20
+SELECT city, AVG(age) 
+FROM students
+GROUP BY city
+HAVING AVG(age) > 20;
+
+Q 29 Find students who are not from Pune and enrolled in Data Science
+SELECT s.name, s.city
+FROM students s
+JOIN courses c
+ON s.course_id = c.course_id
+WHERE s.city < 'Pune'
+AND c.course_name = 'Data Science';
+
+Q 30 Show all students from Pune
+SELECT * FROM students
+WHERE city = 'Pune';
 
