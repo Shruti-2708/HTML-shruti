@@ -154,6 +154,68 @@ WHERE s.city < 'Pune'
 AND c.course_name = 'Data Science';
 
 Q 30 Show all students from Pune
-SELECT * FROM students
+select * FROM students
 WHERE city = 'Pune';
 
+# joins queries
+Q 31 Show student name with course name
+select students.name, courses.course_name
+from students
+JOIN courses
+ON students.course_id = courses.course_id;
+
+Q 32 Show all students with their course name
+select students.name, courses.course_name
+from students
+LEFT JOIN courses
+ON students.course_id = courses.course_id;
+
+Q 33 Show course name with student name
+select courses.course_name, students.name
+from courses
+JOIN students
+ON courses.course_id = students.course_id;
+
+Q 34 Show student name, age and course name
+select students.name, students.age, courses.course_name
+from students
+JOIN courses
+ON students.course_id = courses.course_id;
+
+Q 35 Show students enrolled in Computer Science
+select students.name
+from students
+JOIN courses
+ON students.course_id = courses.course_id
+WHERE courses.course_name = 'Computer Science';
+ 
+Q 36 Show student name and course id
+select students.name, courses.course_id
+from students
+JOIN courses
+ON students.course_id = courses.course_id;
+
+Q 37 Show all courses even if no student is enrolled
+select courses.course_name, students.name
+from courses
+LEFT JOIN students
+ON courses.course_id = students.course_id;
+
+Q 38 Show students with their city and course name
+select students.name, students.city, courses.course_name
+from students
+JOIN courses
+ON students.course_id = courses.course_id;
+
+Q 39 Show students from Pune with course name
+select students.name, courses.course_name
+from students
+JOIN courses
+ON students.course_id = courses.course_id
+WHERE students.city = 'Pune';
+
+Q40 Show student id and course name
+select students.student_id, courses.course_name
+from students
+JOIN courses
+ON students.course_id = courses.course_id;
