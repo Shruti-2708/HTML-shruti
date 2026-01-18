@@ -154,68 +154,101 @@ WHERE s.city < 'Pune'
 AND c.course_name = 'Data Science';
 
 Q 30 Show all students from Pune
-select * FROM students
+SELECT * FROM students
 WHERE city = 'Pune';
 
 # joins queries
 Q 31 Show student name with course name
-select students.name, courses.course_name
-from students
+SELECT students.name, courses.course_name
+FROM students
 JOIN courses
 ON students.course_id = courses.course_id;
 
 Q 32 Show all students with their course name
-select students.name, courses.course_name
-from students
+SELECT students.name, courses.course_name
+FROM students
 LEFT JOIN courses
 ON students.course_id = courses.course_id;
 
 Q 33 Show course name with student name
-select courses.course_name, students.name
-from courses
+SELECT courses.course_name, students.name
+FROM courses
 JOIN students
 ON courses.course_id = students.course_id;
 
 Q 34 Show student name, age and course name
-select students.name, students.age, courses.course_name
-from students
+SELECT students.name, students.age, courses.course_name
+FROM students
 JOIN courses
 ON students.course_id = courses.course_id;
 
 Q 35 Show students enrolled in Computer Science
-select students.name
-from students
+SELECT students.name
+FROM students
 JOIN courses
 ON students.course_id = courses.course_id
 WHERE courses.course_name = 'Computer Science';
  
 Q 36 Show student name and course id
-select students.name, courses.course_id
-from students
+SELECT students.name, courses.course_id
+FROM students
 JOIN courses
 ON students.course_id = courses.course_id;
 
 Q 37 Show all courses even if no student is enrolled
-select courses.course_name, students.name
-from courses
+SELECT courses.course_name, students.name
+FROM courses
 LEFT JOIN students
 ON courses.course_id = students.course_id;
 
 Q 38 Show students with their city and course name
-select students.name, students.city, courses.course_name
-from students
+SELECT students.name, students.city, courses.course_name
+FROM students
 JOIN courses
 ON students.course_id = courses.course_id;
 
 Q 39 Show students from Pune with course name
-select students.name, courses.course_name
-from students
+SELECT students.name, courses.course_name
+FROM students
 JOIN courses
 ON students.course_id = courses.course_id
 WHERE students.city = 'Pune';
 
 Q40 Show student id and course name
-select students.student_id, courses.course_name
-from students
+SELECT students.student_id, courses.course_name
+FROM students
 JOIN courses
 ON students.course_id = courses.course_id;
+
+Q41Employees earning more than department average
+SELECT *
+FROM employees e
+WHERE salary >
+(
+  SELECT AVG(salary)
+  FROM employees
+  WHERE department = e.department
+);
+Q42 Second highest salary (without LIMIT)
+SELECT MAX(salary)
+FROM employees
+WHERE salary <
+(
+  SELECT MAX(salary)
+  FROM employees
+);
+
+Q43 Total salary paid per department
+SELECT department, SUM(salary)
+FROM employees
+GROUP BY department;
+
+Q 44 Departments having more than 5 employees
+SELECT department, COUNT(*)
+FROM employees
+GROUP BY department
+HAVING COUNT(*) > 5;
+
+
+
+
